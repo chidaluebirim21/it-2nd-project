@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 360">
+  <rect width="540" height="360" fill="#F6EEE6"/>
+  <path d="M0 0h180L0 160Z" fill="#F5D33F"/>
+  <path d="M360 0h180v360Z" fill="#202020"/>
+  <g stroke="#F5D33F" stroke-width="14">
+    <path d="M400 60l-60 300"/><path d="M422 60l-60 300"/><path d="M444 60l-60 300"/><path d="M466 60l-60 300"/>
+    <path d="M488 60l-60 300"/><path d="M510 60l-60 300"/><path d="M532 60l-60 300"/><path d="M554 60l-60 300"/>
+  </g>
+  <rect x="40" y="200" width="120" height="160" fill="#F7B6C9"/>
+  <rect x="140" y="90" width="260" height="200" fill="#fff" stroke="#ddd" stroke-width="2"/>
+  <rect x="160" y="110" width="220" height="20" fill="#8FB8E8"/>
+  <circle cx="210" cy="200" r="34" fill="#EB7565"/>
+  <rect x="250" y="166" width="60" height="68" fill="#61C4B7"/>
+  <path d="M320 234l40-68v68Z" fill="#F6A560"/>
+  <path d="M160 260h200M160 274h140" stroke="#bbb" stroke-width="5"/>
+</svg>
