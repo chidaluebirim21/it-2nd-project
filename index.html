@@ -73,23 +73,51 @@
     <section class="work">
       <h2>My Work</h2>
 
-      <div class="slider" tabindex="0">
-        <div class="slider-track">
-          <img src="./assets/images/image-slide-1.svg" alt="Geometric pattern poster">
-          <img src="./assets/images/image-slide-2.svg" alt="Newspaper illustration">
-          <img src="./assets/images/image-slide-3.svg" alt="Graphic design book cover">
-          <img src="./assets/images/image-slide-4.svg" alt="Brand identity">
-          <img src="./assets/images/image-slide-5.svg" alt="Mobile app design">
-        </div>
-      </div>
+      <div class="slider">
+        <!-- one radio per slide. tab to them and use the arrow keys to change slide -->
+        <input type="radio" name="slide" id="slide-1" aria-label="Slide 1" checked>
+        <input type="radio" name="slide" id="slide-2" aria-label="Slide 2">
+        <input type="radio" name="slide" id="slide-3" aria-label="Slide 3">
+        <input type="radio" name="slide" id="slide-4" aria-label="Slide 4">
+        <input type="radio" name="slide" id="slide-5" aria-label="Slide 5">
 
-      <div class="slider-btns">
-        <button class="slider-btn" id="prev" aria-label="Previous slide">
-          <img src="./assets/images/icon-arrow-left.svg" alt="">
-        </button>
-        <button class="slider-btn" id="next" aria-label="Next slide">
-          <img src="./assets/images/icon-arrow-right.svg" alt="">
-        </button>
+        <div class="slider-window">
+          <div class="slider-track">
+            <!-- copy of the last slide so there's always one on the left -->
+            <img src="./assets/images/image-slide-5.svg" alt="">
+            <img src="./assets/images/image-slide-1.svg" alt="Geometric pattern poster">
+            <img src="./assets/images/image-slide-2.svg" alt="Newspaper illustration">
+            <img src="./assets/images/image-slide-3.svg" alt="Graphic design book cover">
+            <img src="./assets/images/image-slide-4.svg" alt="Brand identity">
+            <img src="./assets/images/image-slide-5.svg" alt="Mobile app design">
+            <!-- copy of the first slide so there's always one on the right -->
+            <img src="./assets/images/image-slide-1.svg" alt="">
+          </div>
+        </div>
+
+        <!-- each set of arrows points to the slides before and after the current one -->
+        <div class="slider-btns">
+          <div class="controls controls-1">
+            <label for="slide-5" class="slider-btn"><img src="./assets/images/icon-arrow-left.svg" alt="Previous slide"></label>
+            <label for="slide-2" class="slider-btn"><img src="./assets/images/icon-arrow-right.svg" alt="Next slide"></label>
+          </div>
+          <div class="controls controls-2">
+            <label for="slide-1" class="slider-btn"><img src="./assets/images/icon-arrow-left.svg" alt="Previous slide"></label>
+            <label for="slide-3" class="slider-btn"><img src="./assets/images/icon-arrow-right.svg" alt="Next slide"></label>
+          </div>
+          <div class="controls controls-3">
+            <label for="slide-2" class="slider-btn"><img src="./assets/images/icon-arrow-left.svg" alt="Previous slide"></label>
+            <label for="slide-4" class="slider-btn"><img src="./assets/images/icon-arrow-right.svg" alt="Next slide"></label>
+          </div>
+          <div class="controls controls-4">
+            <label for="slide-3" class="slider-btn"><img src="./assets/images/icon-arrow-left.svg" alt="Previous slide"></label>
+            <label for="slide-5" class="slider-btn"><img src="./assets/images/icon-arrow-right.svg" alt="Next slide"></label>
+          </div>
+          <div class="controls controls-5">
+            <label for="slide-4" class="slider-btn"><img src="./assets/images/icon-arrow-left.svg" alt="Previous slide"></label>
+            <label for="slide-1" class="slider-btn"><img src="./assets/images/icon-arrow-right.svg" alt="Next slide"></label>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -115,6 +143,5 @@
     <a href="#contact" class="btn btn-dark">Free Consultation</a>
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>

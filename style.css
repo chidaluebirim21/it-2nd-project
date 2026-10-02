@@ -87,8 +87,7 @@ h2 {
 }
 
 a:focus-visible,
-button:focus-visible,
-.slider:focus-visible {
+button:focus-visible {
   outline: 3px dashed var(--purple);
   outline-offset: 4px;
 }
@@ -255,6 +254,18 @@ button:focus-visible,
 .slider {
   --slide-width: 80vw;
   --gap: 16px;
+  --step: calc(var(--slide-width) + var(--gap));
+  position: relative;
+}
+
+/* hide the radios but keep them focusable for keyboard users */
+.slider input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.slider-window {
   overflow: hidden;
 }
 
@@ -262,11 +273,8 @@ button:focus-visible,
   display: flex;
   gap: var(--gap);
   width: max-content;
-  /* 2 slides sit to the left of the middle one */
-  margin-left: calc(50% - var(--slide-width) / 2 - 2 * (var(--slide-width) + var(--gap)));
-}
-
-.slider-track.moving {
+  /* first image (the copy of slide 5) starts in the middle */
+  margin-left: calc(50% - var(--slide-width) / 2);
   transition: transform 0.4s ease-in-out;
 }
 
@@ -277,11 +285,34 @@ button:focus-visible,
   border-radius: 10px;
 }
 
+#slide-1:checked ~ .slider-window .slider-track { transform: translateX(calc(var(--step) * -1)); }
+#slide-2:checked ~ .slider-window .slider-track { transform: translateX(calc(var(--step) * -2)); }
+#slide-3:checked ~ .slider-window .slider-track { transform: translateX(calc(var(--step) * -3)); }
+#slide-4:checked ~ .slider-window .slider-track { transform: translateX(calc(var(--step) * -4)); }
+#slide-5:checked ~ .slider-window .slider-track { transform: translateX(calc(var(--step) * -5)); }
+
+/* focus ring around the slides when a radio is focused */
+.slider input:focus-visible ~ .slider-window {
+  outline: 3px dashed var(--purple);
+  outline-offset: 4px;
+}
+
 .slider-btns {
-  display: flex;
+  margin-top: 48px;
+}
+
+.controls {
+  display: none;
   justify-content: center;
   gap: 16px;
-  margin-top: 48px;
+}
+
+#slide-1:checked ~ .slider-btns .controls-1,
+#slide-2:checked ~ .slider-btns .controls-2,
+#slide-3:checked ~ .slider-btns .controls-3,
+#slide-4:checked ~ .slider-btns .controls-4,
+#slide-5:checked ~ .slider-btns .controls-5 {
+  display: flex;
 }
 
 .slider-btn {
@@ -289,7 +320,6 @@ button:focus-visible,
   place-items: center;
   width: 56px;
   height: 56px;
-  border: none;
   border-radius: 50%;
   background-color: var(--black);
   cursor: pointer;
@@ -297,8 +327,14 @@ button:focus-visible,
 }
 
 .slider-btn:hover,
-.slider-btn:focus {
+.slider input:focus-visible ~ .slider-btns .slider-btn {
   background-color: var(--coral);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slider-track {
+    transition: none;
+  }
 }
 
 /* ---------- contact ---------- */
